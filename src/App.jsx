@@ -21,6 +21,7 @@ export default function App() {
   const [showYear, setShowYear] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Hover-to-expand when collapsed (3s dwell)
   const hoverTimerRef = useRef(null);
@@ -63,7 +64,7 @@ export default function App() {
 
   const goTo = (id) => {
     setActive(id);
-    // expand the parent group if a child was clicked
+    setMobileOpen(false);
     const parent = NAV.flatMap((s) => s.items).find((it) =>
       it.children?.some((c) => c.id === id)
     );
@@ -105,7 +106,7 @@ export default function App() {
 
   return (
     <div
-      className={`app ${collapsed ? "collapsed" : ""}`}
+      className={`app ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
       data-screen-label={`FIRE Reporting Tool / ${crumbs.join(" / ")}`}
     >
       <Topbar
@@ -123,6 +124,8 @@ export default function App() {
         setShowUser={setShowUser}
         onOpenCmd={() => setCmdOpen(true)}
         onOpenOps={() => goTo("ops")}
+        onToggleMobile={() => setMobileOpen((v) => !v)}
+        mobileOpen={mobileOpen}
       />
 
       <Sidebar
@@ -134,6 +137,8 @@ export default function App() {
         setCollapsed={setCollapsed}
         onItemEnter={onItemEnter}
         onItemLeave={onItemLeave}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
 
       <main className="main">

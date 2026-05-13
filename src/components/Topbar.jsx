@@ -17,33 +17,32 @@ export function Topbar({
   setShowUser,
   onOpenCmd,
   onOpenOps,
+  onToggleMobile,
+  mobileOpen,
 }) {
   return (
     <div className="topbar">
+      <button className="hamburger-btn" onClick={onToggleMobile} title="Menu">
+        <I.menu size={20} />
+      </button>
+
       <div className="brand">
         <div className="brand-mark"><img style={{ height: "30px" }} src="/src/assets/opes-logo-only.png" alt="Opes logo" title="OPES FATCA/CRS Reporting Tool Version 2.0.01"/></div>
         {!collapsed && (
-          <>
-            <div className="brand-name" title="OPES FATCA/CRS Reporting Tool Version 2.0.01">
-              <div style={{ paddingLeft: "12px" }} >
-                <p className="brand-product">Reporting Tool</p>
-                <p className="brand-ver">2.0.01</p>
-              </div>
+          <div
+            id="brandName"
+            className="brand-name"
+            title="OPES FATCA/CRS Reporting Tool Version 2.0.01"
+          >
+            <div style={{ paddingLeft: "12px" }}>
+              <p className="brand-product">Reporting Tool</p>
+              <p className="brand-ver">2.0.01</p>
             </div>
-            
-          </>
+          </div>
         )}
       </div>
 
       <div className="topbar-mid">
-        <div className="crumbs">
-          {crumbs.map((c, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && <I.chevR size={12} className="sep" />}
-              <span className={i === crumbs.length - 1 ? "here" : ""}>{c}</span>
-            </React.Fragment>
-          ))}
-        </div>
         {/* <div style={{ marginLeft: 24 }}>
           <button
             className="search"

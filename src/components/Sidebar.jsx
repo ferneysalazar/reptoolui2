@@ -11,9 +11,15 @@ export function Sidebar({
   setCollapsed,
   onItemEnter,
   onItemLeave,
+  mobileOpen,
+  setMobileOpen,
 }) {
   return (
-    <nav className="sidebar">
+    <>
+    {mobileOpen && (
+      <div className="mobile-overlay" onClick={() => setMobileOpen(false)} />
+    )}
+    <nav className={`sidebar${mobileOpen ? " mobile-open" : ""}`}>
       <button
         className="collapse-toggle"
         onClick={() => setCollapsed((c) => !c)}
@@ -99,5 +105,6 @@ export function Sidebar({
         </div>
       </div>
     </nav>
+    </>
   );
 }

@@ -21,6 +21,7 @@
   --accent:    oklch(55% 0.17 250);
   --accent-2:  oklch(48% 0.17 250);
   --accent-3:  oklch(42% 0.17 250);
+  --accent-4:  oklch(32.164% 0.10882 256.788);
   --accent-tint: oklch(96% 0.025 250);
   --accent-tint-strong: oklch(92% 0.05 250);
 
@@ -76,7 +77,7 @@ input, select, textarea { font: inherit; color: inherit; }
   border-bottom: 1px solid var(--line);
   height: 56px;
   position: relative;
-  z-index: 5;
+  z-index: 210;
 }
 .app.collapsed .topbar { grid-template-columns: 64px 1fr auto; }
 .brand {
@@ -106,14 +107,23 @@ input, select, textarea { font: inherit; color: inherit; }
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.01em;
-  font-style: italic;
+  font-style: normal;
   color: var(--ink);
+  cursor: default;
+}
+.brand-product {
+  color: var(--accent-4);
+  margin: 0;
+  margin-left: 6px;
+  padding:0;
 }
 .brand-ver {
   font-family: var(--font-mono);
   font-size: 10.5px;
   color: var(--ink-3);
+  margin: 0;
   margin-left: 6px;
+  padding:0;
 }
 .app.collapsed .brand { padding: 0; justify-content: center; }
 .app.collapsed .brand-name, .app.collapsed .brand-ver { display: none; }
@@ -674,4 +684,89 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 .cmdk-list .item:hover, .cmdk-list .item.focus { background: var(--accent-tint); color: var(--accent); }
 .cmdk-list .item .meta { margin-left: auto; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); }
+
+/* ---------- Hamburger button (hidden on desktop) ---------- */
+.hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 56px;
+  color: var(--ink-2);
+  flex-shrink: 0;
+}
+.hamburger-btn:hover { color: var(--accent); }
+
+/* ---------- Mobile overlay backdrop ---------- */
+.mobile-overlay {
+  display: none;
+}
+
+/* ---------- Responsive: < 960px ---------- */
+@media (max-width: 959px) {
+  /* collapse sidebar column from grid */
+  .app,
+  .app.collapsed {
+    grid-template-columns: 1fr;
+  }
+
+  /* topbar: hamburger | brand | right */
+  .topbar,
+  .app.collapsed .topbar {
+    grid-template-columns: auto auto 1fr auto;
+  }
+
+  /* show hamburger button */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* hide brand name when hamburger is visible */
+  #brandName { display: none; }
+
+  /* sidebar becomes a fixed drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 220;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: none;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px oklch(0% 0 0 / 0.12);
+  }
+
+  /* always show labels inside the drawer */
+  .app.collapsed .side-section-label,
+  .app.collapsed .side-item .label,
+  .app.collapsed .side-item .badge,
+  .app.collapsed .side-item .chev,
+  .app.collapsed .side-sub {
+    display: revert;
+  }
+  .app.collapsed .side-item {
+    justify-content: flex-start;
+    padding: 9px 12px;
+  }
+  .app.collapsed .brand { padding: 0 18px; justify-content: flex-start; }
+  .app.collapsed .brand-name,
+  .app.collapsed .brand-ver { display: revert; }
+
+  /* hide the collapse toggle — not needed on mobile */
+  .collapse-toggle { display: none; }
+
+  /* semi-transparent backdrop */
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: oklch(0% 0 0 / 0.35);
+    z-index: 199;
+  }
+}
 .cmdk-list .group { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); padding: 10px 12px 4px; }
