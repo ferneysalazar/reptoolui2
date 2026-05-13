@@ -25,7 +25,10 @@ export function Topbar({
         {!collapsed && (
           <>
             <div className="brand-name" title="OPES FATCA/CRS Reporting Tool Version 2.0.01">
-              <div style={{ paddingLeft: "12px" }} >Reporting Tool</div>
+              <div style={{ paddingLeft: "12px" }} >
+                <p className="brand-product">Reporting Tool</p>
+                <p className="brand-ver">2.0.01</p>
+              </div>
             </div>
             
           </>
