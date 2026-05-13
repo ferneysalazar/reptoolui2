@@ -8,7 +8,7 @@ export function OperationNotificationsScreen() {
       title: "Requires action",
       tint: "var(--bad)",
       items: [
-        { t: "HMRC rejected FIL-2026-001135", who: "Mira Adesanya", when: "Today · 11:08", body: "Schema v2.0 submitted; v2.1.1 required. Re-stage the filing on the v2.1.1 pack and re-submit.", cta: "Re-stage filing" },
+        { t: "HMRC rejected FIL-2026-001135", who: "Ferney Salazar", when: "Today · 11:08", body: "Schema v2.0 submitted; v2.1.1 required. Re-stage the filing on the v2.1.1 pack and re-submit.", cta: "Re-stage filing" },
         { t: "1 missing TIN unresolved", who: "validation.engine", when: "Today · 09:46", body: "FIL-2026-001142 · holder 'GS Trust 0042'. Manual remediation expected.", cta: "Resolve record" },
       ],
     },

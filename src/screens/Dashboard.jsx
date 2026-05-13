@@ -16,9 +16,9 @@ export function DashboardScreen({ ctx }) {
     <div>
       <div className="hero">
         <div>
-          <h1 className="greeting">
-            Welcome back, <em>Mira</em>
-          </h1>
+          <h2 className="greeting">
+            Last File Generation:<em> March 10 2026</em>
+          </h2>
           <div className="ctx">
             Reporting status for <strong>{ctx.institution}</strong> · period{" "}
             <strong>{ctx.year}</strong>. Filing window closes in{" "}

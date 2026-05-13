@@ -12,7 +12,7 @@ export function InstitutionVerificationScreen() {
     fatcaStatus: "Participating FI (Model 1 IGA)",
     incorporated: "Anguilla, BWI",
     address: "Mariners Way, The Valley, AI-2640, Anguilla",
-    contact: "Mira Adesanya · compliance.lead@OPES Inc.co",
+    contact: "Ferney Salazar · compliance.lead@OPES Inc.co",
     lei: "549300H8JZQX5K9Z3F22",
   };
 

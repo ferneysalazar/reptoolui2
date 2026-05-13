@@ -10,8 +10,10 @@ import { JurisdictionAdministrationScreen } from "./screens/JurisdictionAdminist
 import { EventsScreen } from "./screens/Events.jsx";
 import { OperationNotificationsScreen } from "./screens/OperationNotifications.jsx";
 import { PlaceholderScreen } from "./screens/Placeholder.jsx";
+import { LoginPage } from "./screens/LoginPage.jsx";
 
 export default function App() {
+  const [authed, setAuthed] = useState(false);
   const [active, setActive] = useState("dashboard");
   const [openGroup, setOpenGroup] = useState("config");
   const [collapsed, setCollapsed] = useState(false);
@@ -103,6 +105,8 @@ export default function App() {
     }
     return [];
   })();
+
+  if (!authed) return <LoginPage onLogin={() => setAuthed(true)} />;
 
   return (
     <div

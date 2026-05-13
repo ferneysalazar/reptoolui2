@@ -20,6 +20,8 @@ export function Topbar({
   onToggleMobile,
   mobileOpen,
 }) {
+  const copyRightText = "FATCA/CRS Reporting Tool© Version 2.0.01. All rights reserved 2026 OPES Software Inc."
+
   return (
     <div className="topbar">
       <button className="hamburger-btn" onClick={onToggleMobile} title="Menu">
@@ -27,15 +29,17 @@ export function Topbar({
       </button>
 
       <div className="brand">
-        <div className="brand-mark"><img style={{ height: "30px" }} src="/src/assets/opes-logo-only.png" alt="Opes logo" title="OPES FATCA/CRS Reporting Tool Version 2.0.01"/></div>
+        <div className="brand-mark">
+          <img style={{ height: "30px" }} src="/src/assets/opes-logo-only.png" alt="Opes logo" title={copyRightText} />
+        </div>
         {!collapsed && (
           <div
             id="brandName"
             className="brand-name"
-            title="OPES FATCA/CRS Reporting Tool Version 2.0.01"
+            title={copyRightText}
           >
-            <div style={{ paddingLeft: "12px" }}>
-              <p className="brand-product">Reporting Tool</p>
+            <div style={{ paddingLeft: "4px" }}>
+              <p className="brand-product">FIRE Reporting Tool<span style={{fontSize:"12px"}}> ©</span></p>
               <p className="brand-ver">2.0.01</p>
             </div>
           </div>
@@ -157,14 +161,14 @@ export function Topbar({
               setShowInst(false);
               setShowYear(false);
             }}
-            title="Mira Adesanya"
+            title="Ferney Salazar"
           >
-            MA
+            FS
           </button>
           {showUser && (
             <div className="popover" style={{ top: 44, right: 0, width: 260 }}>
               <div style={{ padding: "10px 12px" }}>
-                <div style={{ fontWeight: 600, fontSize: 13.5 }}>Mira Adesanya</div>
+                <div style={{ fontWeight: 600, fontSize: 13.5 }}>Ferney Salazar</div>
                 <div className="muted" style={{ fontSize: 12 }}>
                   Compliance Lead · OPES Inc
                 </div>
