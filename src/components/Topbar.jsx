@@ -21,10 +21,10 @@ export function Topbar({
   return (
     <div className="topbar">
       <div className="brand">
-        <div className="brand-mark"><img style={{ height: "30px" }} src="/src/assets/opes-logo-only.png" alt="Opes logo" title="OPES Fire Reporting Tool Version 2.0.01"/></div>
+        <div className="brand-mark"><img style={{ height: "30px" }} src="/src/assets/opes-logo-only.png" alt="Opes logo" title="OPES FATCA/CRS Reporting Tool Version 2.0.01"/></div>
         {!collapsed && (
           <>
-            <div className="brand-name" title="OPES Fire Reporting Tool Version 2.0.01">
+            <div className="brand-name" title="OPES FATCA/CRS Reporting Tool Version 2.0.01">
               <div style={{ paddingLeft: "12px" }} >Reporting Tool</div>
             </div>
             
